@@ -14,5 +14,18 @@ public class Biblioteca {
 
     public void run() {
         System.out.println(getWelcomeMessage());
+        System.out.println(listAllBooks(new Library("./data/books")));
+    }
+
+    public String listAllBooks(Library library) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("--------List Of Books--------");
+        sb.append(System.lineSeparator());
+        sb.append("Title - Author - Year - ISBN");
+        sb.append(System.lineSeparator());
+        sb.append("_____________________________");
+        sb.append(System.lineSeparator());
+        sb.append(library.asString());
+        return sb.toString();
     }
 }
