@@ -24,4 +24,17 @@ public class LibraryTest {
         expected.append(System.lineSeparator());
         assertEquals(expected.toString(),library.asString());
     }
+
+    @Test
+    public void testCheckOutBookShouldCheckOutABook() {
+        Library library = new Library("./data/testDB");
+        assertTrue(library.checkOutBook("Ramayana"));
+    }
+
+    @Test
+    public void testCheckOutBookShouldRemoveBookFromAvailableBooks() {
+        Library library = new Library("./data/testDB");
+        assertTrue(library.checkOutBook("Ramayana"));
+        assertEquals("",library.asString());
+    }
 }

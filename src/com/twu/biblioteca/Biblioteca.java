@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Biblioteca {
-
 
     public String getWelcomeMessage() {
         StringBuilder sb  = new StringBuilder();
@@ -57,6 +57,7 @@ public class Biblioteca {
     public Menu createMenu(Library library){
         Menu menu = new Menu();
         menu.add(new MenuItem("List Books",new ListBookCommand(listAllBooks(library))));
+        menu.add(new MenuItem("CheckOut Book",new CheckOutCommand(library, System.in, System.out)));
         menu.add(new MenuItem("Quit",new QuitCommand()));
         return menu;
     }

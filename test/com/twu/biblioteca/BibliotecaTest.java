@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import jdk.internal.util.xml.impl.Input;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -48,4 +49,21 @@ public class BibliotecaTest {
         expected.append(System.lineSeparator());
         assertEquals(expected.toString(), biblioteca.listAllOptions(menu));
     }
+//    @Test
+//    public void testListAllOptionsShouldListAllTheOptionsIncludingCheckoutOption(){
+//        Biblioteca biblioteca = new Biblioteca();
+//        Menu menu  = new Menu();
+//        Library library = new Library("./data/testDB");
+//        menu.add(new MenuItem("List Books",new ListBookCommand(biblioteca.listAllBooks(library))));
+//        menu.add(new MenuItem("CheckOut Book",new CheckOutCommand(library, Input.in, ps)));
+//        menu.add(new MenuItem("Quit",new QuitCommand()));
+//        StringBuilder expected = new StringBuilder();
+//        expected.append("1. List Books");
+//        expected.append(System.lineSeparator());
+//        expected.append("2. CheckOut Book");
+//        expected.append(System.lineSeparator());
+//        expected.append("3. Quit");
+//        expected.append(System.lineSeparator());
+//        assertEquals(expected.toString(), biblioteca.listAllOptions(menu));
+//    }
 }

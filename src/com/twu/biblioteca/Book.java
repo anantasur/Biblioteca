@@ -16,4 +16,8 @@ public class Book {
     public String asString() {
         return title + " - " + author + " - " + year + " - " + isbn;
     }
+
+    public boolean isName(String bookName) {
+        return bookName.equals(title);
+    }
 }
