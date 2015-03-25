@@ -33,8 +33,19 @@ public class BibliotecaTest {
         expected.append(System.lineSeparator());
         assertEquals(expected.toString(), biblioteca.listAllBooks(library));
     }
-//    @Test
-//    public void test(){
-//        ;
-//    }
+
+    @Test
+    public void testListAllOptionsShouldListAllTheOptions(){
+        Biblioteca biblioteca = new Biblioteca();
+        Menu menu  = new Menu();
+        Library library = new Library("./data/testDB");
+        menu.add(new MenuItem("List Books",new ListBookCommand(biblioteca.listAllBooks(library))));
+        menu.add(new MenuItem("Quit",new QuitCommand()));
+        StringBuilder expected = new StringBuilder();
+        expected.append("1. List Books");
+        expected.append(System.lineSeparator());
+        expected.append("2. Quit");
+        expected.append(System.lineSeparator());
+        assertEquals(expected.toString(), biblioteca.listAllOptions(menu));
+    }
 }
