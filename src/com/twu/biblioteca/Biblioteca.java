@@ -17,18 +17,23 @@ public class Biblioteca {
     }
 
     public void run() {
-        final boolean KEEP_RUNNING = true;
+        boolean KEEP_RUNNING = true;
         System.out.println(getWelcomeMessage());
         Scanner scanner = new Scanner(System.in);
         Menu menu = createMenu(new Library("./data/books"));
         while (KEEP_RUNNING){
             System.out.println(listAllOptions(menu));
-            int option = scanner.nextInt();
             try {
+                int option = scanner.nextInt();
                 menu.optionHandler(option);
-            } catch (QuitCommandException e) {
-                System.out.println(e.getMessage());
-                System.exit(0);
+            } catch (QuitCommandException qe) {
+                System.out.println(qe.getMessage());
+                KEEP_RUNNING = false;
+            }catch(InvalidOptionException ioe){
+                System.out.println(ioe.getMessage());
+            }catch(Exception e){
+                System.out.println("OOPS!! Some unknown error occurred!!");
+                KEEP_RUNNING = false;
             }
         }
     }

@@ -12,7 +12,7 @@ public class MenuItem {
     public String asString() {
         return menuName;
     }
-    public void performAction() throws QuitCommandException {
+    public void performAction() throws QuitCommandException, InvalidOptionException {
         command.execute();
     }
 }

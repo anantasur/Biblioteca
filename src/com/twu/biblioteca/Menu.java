@@ -26,7 +26,9 @@ public class Menu {
         return stringBuilder.toString();
     }
 
-    public void optionHandler(int option) throws QuitCommandException {
+    public void optionHandler(int option) throws QuitCommandException, InvalidOptionException {
+        if(option < 1 || option > menuItemList.size())
+            throw new InvalidOptionException("Invalid Option");
         menuItemList.get(option - 1).performAction();
     }
 }
